@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -62,8 +64,17 @@ dependencies {
 
     // Corrutinas
     implementation(libs.coroutines)
+
+    //Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+    // Para navigation con Fragments
+    implementation (libs.androidx.hilt.navigation.fragment)
 }
 
+// Allow references to generated code
 kapt {
-    correctErrorTypes true
+    correctErrorTypes = true
 }
+

@@ -4,10 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AbilityDetailViewModel : ViewModel() {
-    private val repository = AbilityRepository()
+@HiltViewModel
+class AbilityDetailViewModel @Inject constructor(
+    private val repository: AbilityRepository
+) : ViewModel() {
 
     private val _abilityDetail = MutableLiveData<AbilityDetailResponse>()
     val abilityDetail: LiveData<AbilityDetailResponse> = _abilityDetail

@@ -2,20 +2,11 @@ package com.kzalink.pruebatecnicaigualadigital
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class AbilityRepository {
-    private val apiService: ApiService
-
-    init {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://pokeapi.co/api/v2/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        apiService = retrofit.create(ApiService::class.java)
-    }
+@Singleton
+class AbilityRepository @Inject constructor(private val apiService: ApiService) {
 
     suspend fun getAbilities(limit: Int, offset: Int): Result<AbilityResponse> {
         return withContext(Dispatchers.IO) {
