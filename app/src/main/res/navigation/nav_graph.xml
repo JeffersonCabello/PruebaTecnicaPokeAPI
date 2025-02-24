@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/abilityListFragment"
-        android:name="com.kzalink.pruebatecnicaigualadigital.AbilityListFragment"
+        android:name="com.kzalink.pruebatecnicaigualadigital.fragments.AbilityListFragment"
         android:label="Lista de Habilidades">
         <action
             android:id="@+id/action_abilityListFragment_to_abilityDetailFragment"
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/abilityDetailFragment"
-        android:name="com.kzalink.pruebatecnicaigualadigital.AbilityListFragment"
+        android:name="com.kzalink.pruebatecnicaigualadigital.fragments.AbilityDetailFragment"
         android:label="Detalle de Habilidad" />
 
 </navigation>
