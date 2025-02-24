@@ -63,3 +63,7 @@ dependencies {
     // Corrutinas
     implementation(libs.coroutines)
 }
+
+kapt {
+    correctErrorTypes true
+}
