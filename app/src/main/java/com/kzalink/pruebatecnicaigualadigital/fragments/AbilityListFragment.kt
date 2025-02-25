@@ -62,6 +62,16 @@ class AbilityListFragment : Fragment() {
                     viewModel.loadAbilities()
                 }
             }
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+
+                if (!recyclerView.canScrollVertically(1) &&
+                    !viewModel.isLoading.value!! &&
+                    adapter.itemCount > 0) {
+                    viewModel.loadAbilities()
+                }
+            }
         })
 
         // Observar los cambios en los datos
